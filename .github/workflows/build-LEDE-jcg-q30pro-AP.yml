@@ -12,9 +12,16 @@
 
 name: LEDE JCG Q30PRO AP Builder
 
-on:
+n:
   repository_dispatch:
   workflow_dispatch:
+
+# ==========================================================
+# GitHub Actions 权限
+# ==========================================================
+permissions:
+  contents: write
+  actions: write
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
@@ -24,26 +31,12 @@ env:
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2-6-254.sh
  
-  
-  # 开启 GitHub Release
+ UPLOAD_BIN_DIR: false
+  UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
 
-  TZ: Asia/Shanghai
-
-
-# ============================================================
-# GitHub Actions 权限
-# ============================================================
-# contents: write
-#   用于创建 Release、上传固件、删除旧 Release
-#
-# actions: write
-#   用于删除旧的 Workflow Runs
-# ============================================================
-permissions:
-  contents: write
-  actions: write
-
+  TZ: Asia/Shanghai 
+ 
 jobs:
   build:
     runs-on: ubuntu-22.04
