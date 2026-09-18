@@ -12,7 +12,7 @@
 
 name: LEDE JCG Q30PRO AP Builder
 
-n:
+on:
   repository_dispatch:
   workflow_dispatch:
 
