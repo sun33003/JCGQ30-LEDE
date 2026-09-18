@@ -27,6 +27,25 @@ env:
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
+  
+   # 开启 GitHub Release
+  UPLOAD_RELEASE: true
+
+  TZ: Asia/Shanghai
+
+
+# ============================================================
+# GitHub Actions 权限
+# ============================================================
+# contents: write
+#   用于创建 Release、上传固件、删除旧 Release
+#
+# actions: write
+#   用于删除旧的 Workflow Runs
+# ============================================================
+permissions:
+  contents: write
+  actions: write
 
 jobs:
   build:
