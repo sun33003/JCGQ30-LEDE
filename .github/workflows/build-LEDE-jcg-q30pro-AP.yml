@@ -1,11 +1,13 @@
 #
-# Copyright (c) 2019-2020 P3TERX <https://p3terx.com>
+# https://github.com/P3TERX/Actions-OpenWrt
+#
+# File: .github/workflows/openwrt-bulder.yml
+# Description: Build OpenWrt using GitHub Actions
+#
+# Copyright (c) 2019-2024 P3TERX <https://p3terx.com>
 #
 # This is free software, licensed under the MIT License.
 # See /LICENSE for more information.
-#
-# https://github.com/P3TERX/Actions-OpenWrt
-# Description: Build OpenWrt using GitHub Actions
 #
 
 name: LEDE JCG Q30PRO AP Builder
@@ -13,19 +15,6 @@ name: LEDE JCG Q30PRO AP Builder
 on:
   repository_dispatch:
   workflow_dispatch:
-    inputs:
-      ssh:
-        description: 'SSH connection to Actions'
-        required: false
-        default: 'false'
-
-
-# ==========================================================
-# GitHub Actions 权限
-# ==========================================================
-permissions:
-  contents: write
-  actions: write
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
@@ -34,13 +23,11 @@ env:
   CONFIG_FILE: jcg-q30pro-ap.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2-6-254.sh
- 
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
+  TZ: Asia/Shanghai
 
-  TZ: Asia/Shanghai 
- 
 jobs:
   build:
     runs-on: ubuntu-22.04
